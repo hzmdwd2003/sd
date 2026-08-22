@@ -13,11 +13,12 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - name: Add review sliders
+      - name: Apply review slider update
         shell: bash
         run: |
           python - <<'PY'
           from pathlib import Path
+          import re
 
           reviews = [
             ('Mark K.', 'Pünktlich, höflich, preiswert. Kann Ich nur empfehlen.'),
@@ -32,76 +33,34 @@ jobs:
             ('Aryan S.', 'Empehlenswerter Chauffeurdienst. Leichte Buchung und Angenehmer Fahrer.')
           ]
 
-          def cards():
+          def cards(lang):
             out=[]
             for i,(name,text) in enumerate(reviews):
               active=' is-active' if i==0 else ''
-              out.append(f'''<article class="review-slide{active}" data-review-slide><div class="review-stars" aria-label="5 von 5 Sternen">★★★★★</div><blockquote>{text}</blockquote><strong>{name}</strong><span>Google Rezension · 5 Sterne</span></article>''')
+              aria='5 von 5 Sternen' if lang=='de' else '5 out of 5 stars'
+              meta='Google Rezension · 5 Sterne' if lang=='de' else 'Google review · 5 stars'
+              out.append(f'<article class="review-slide{active}" data-review-slide><div class="review-stars" aria-label="{aria}">★★★★★</div><blockquote>{text}</blockquote><strong>{name}</strong><span>{meta}</span></article>')
             return ''.join(out)
 
-          de = f'''\n<section class="section reviews-section" id="kundenbewertungen"><div class="wrap"><div class="section-head"><span class="eyebrow">Kundenbewertungen</span><h2>Was unsere Kunden sagen</h2><p class="google-rating"><span>★★★★★</span> <strong>5/5 Sterne bei Google</strong></p></div><div class="review-slider" data-review-slider><button class="review-nav prev" type="button" data-review-prev aria-label="Vorherige Rezension">‹</button><div class="review-stage">{cards()}</div><button class="review-nav next" type="button" data-review-next aria-label="Nächste Rezension">›</button><div class="review-dots" data-review-dots></div></div></div></section>\n'''
+          de=f'''\n<section class="section reviews-section" id="kundenbewertungen"><div class="wrap"><div class="section-head"><span class="eyebrow">Kundenbewertungen</span><h2>Was unsere Kunden sagen</h2><p class="google-rating"><span>★★★★★</span> <strong>5/5 Sterne bei Google</strong></p></div><div class="review-slider" data-review-slider><button class="review-nav prev" type="button" data-review-prev aria-label="Vorherige Rezension">‹</button><div class="review-stage">{cards('de')}</div><button class="review-nav next" type="button" data-review-next aria-label="Nächste Rezension">›</button><div class="review-dots" data-review-dots></div></div></div></section>\n'''
+          en=f'''\n<section class="section reviews-section" id="customer-reviews"><div class="wrap"><div class="section-head"><span class="eyebrow">Customer reviews</span><h2>What our customers say</h2><p class="google-rating"><span>★★★★★</span> <strong>5/5 stars on Google</strong></p></div><div class="review-slider" data-review-slider><button class="review-nav prev" type="button" data-review-prev aria-label="Previous review">‹</button><div class="review-stage">{cards('en')}</div><button class="review-nav next" type="button" data-review-next aria-label="Next review">›</button><div class="review-dots" data-review-dots></div></div></div></section>\n'''
 
-          en_cards=[]
-          for i,(name,text) in enumerate(reviews):
-            active=' is-active' if i==0 else ''
-            en_cards.append(f'''<article class="review-slide{active}" data-review-slide><div class="review-stars" aria-label="5 out of 5 stars">★★★★★</div><blockquote>{text}</blockquote><strong>{name}</strong><span>Google review · 5 stars</span></article>''')
-          en = f'''\n<section class="section reviews-section" id="customer-reviews"><div class="wrap"><div class="section-head"><span class="eyebrow">Customer reviews</span><h2>What our customers say</h2><p class="google-rating"><span>★★★★★</span> <strong>5/5 stars on Google</strong></p></div><div class="review-slider" data-review-slider><button class="review-nav prev" type="button" data-review-prev aria-label="Previous review">‹</button><div class="review-stage">{''.join(en_cards)}</div><button class="review-nav next" type="button" data-review-next aria-label="Next review">›</button><div class="review-dots" data-review-dots></div></div></div></section>\n'''
-
-          for path, section in [('index.html',de),('en/index.html',en)]:
+          for path,section in [('index.html',de),('en/index.html',en)]:
             p=Path(path); s=p.read_text()
-            # replace prior review block if present, otherwise insert before </main>
-            import re
             s=re.sub(r'\n<section class="section reviews-section".*?</section>\n(?=</main>)','\n',s,flags=re.S)
-            if '</main>' in s:
-              s=s.replace('</main>',section+'</main>',1)
+            s=s.replace('</main>',section+'</main>',1)
             p.write_text(s)
 
-          css=Path('styles.css'); s=css.read_text()
-          marker='/* customer review slider */'
-          block=r'''
-/* customer review slider */
-.reviews-section{background:#f6f7f8}.google-rating{display:flex;align-items:center;justify-content:center;gap:9px;color:#26323e!important}.google-rating span,.review-stars{color:#f5b301;letter-spacing:3px}.review-slider{position:relative;max-width:900px;margin:0 auto;padding:0 72px}.review-stage{position:relative;min-height:340px}.review-slide{display:none;background:#fff;border:1px solid #e2e6ea;border-top:5px solid #071019;border-radius:18px;padding:42px 48px;min-height:320px;text-align:center;box-shadow:0 18px 55px rgba(7,16,25,.10);align-items:center;justify-content:center;flex-direction:column}.review-slide.is-active{display:flex}.review-stars{font-size:25px;margin-bottom:24px}.review-slide blockquote{font-size:20px;line-height:1.55;color:#46515d;margin:0 auto 28px;max-width:700px}.review-slide strong{font-size:18px;color:#071019}.review-slide>span{font-size:12px;color:#8a96a2;margin-top:4px}.review-nav{position:absolute;top:44%;transform:translateY(-50%);width:48px;height:48px;border:1px solid #dfe4e8;border-radius:50%;background:#fff;color:#071019;font-size:33px;line-height:1;cursor:pointer;box-shadow:0 8px 28px rgba(7,16,25,.10);z-index:3}.review-nav.prev{left:5px}.review-nav.next{right:5px}.review-dots{display:flex;justify-content:center;gap:7px;margin-top:18px}.review-dot{width:8px;height:8px;border:0;border-radius:50%;background:#c8d0d7;padding:0;cursor:pointer}.review-dot.is-active{background:#071019}
-@media(max-width:680px){.review-slider{padding:0 40px}.review-stage{min-height:390px}.review-slide{padding:30px 22px;min-height:370px}.review-slide blockquote{font-size:16px}.review-stars{font-size:21px}.review-nav{width:36px;height:36px;font-size:26px}.review-nav.prev{left:0}.review-nav.next{right:0}}
-'''
-          if marker in s:
-            s=s.split(marker)[0].rstrip()+"\n"+block
-          else:
-            s=s.rstrip()+"\n"+block
+          css=Path('styles.css'); s=css.read_text(); marker='/* customer review slider */'
+          block='''/* customer review slider */
+.reviews-section{background:#f6f7f8}.google-rating{display:flex;align-items:center;justify-content:center;gap:9px;color:#26323e!important}.google-rating span,.review-stars{color:#f5b301;letter-spacing:3px}.review-slider{position:relative;max-width:900px;margin:0 auto;padding:0 72px}.review-stage{position:relative;min-height:340px}.review-slide{display:none;background:#fff;border:1px solid #e2e6ea;border-top:5px solid #071019;border-radius:18px;padding:42px 48px;min-height:320px;text-align:center;box-shadow:0 18px 55px rgba(7,16,25,.10);align-items:center;justify-content:center;flex-direction:column}.review-slide.is-active{display:flex}.review-stars{font-size:25px;margin-bottom:24px}.review-slide blockquote{font-size:20px;line-height:1.55;color:#46515d;margin:0 auto 28px;max-width:700px}.review-slide strong{font-size:18px;color:#071019}.review-slide>span{font-size:12px;color:#8a96a2;margin-top:4px}.review-nav{position:absolute;top:44%;transform:translateY(-50%);width:48px;height:48px;border:1px solid #dfe4e8;border-radius:50%;background:#fff;color:#071019;font-size:33px;line-height:1;cursor:pointer;box-shadow:0 8px 28px rgba(7,16,25,.10);z-index:3}.review-nav.prev{left:5px}.review-nav.next{right:5px}.review-dots{display:flex;justify-content:center;gap:7px;margin-top:18px}.review-dot{width:8px;height:8px;border:0;border-radius:50%;background:#c8d0d7;padding:0;cursor:pointer}.review-dot.is-active{background:#071019}@media(max-width:680px){.review-slider{padding:0 40px}.review-stage{min-height:390px}.review-slide{padding:30px 22px;min-height:370px}.review-slide blockquote{font-size:16px}.review-stars{font-size:21px}.review-nav{width:36px;height:36px;font-size:26px}.review-nav.prev{left:0}.review-nav.next{right:0}}\n'''
+          s=(s.split(marker)[0].rstrip()+'\n'+block) if marker in s else (s.rstrip()+'\n'+block)
           css.write_text(s)
 
-          js=Path('script.js'); s=js.read_text()
-          jmarker='// Customer review sliders'
-          jblock=r'''
-// Customer review sliders
-$$('[data-review-slider]').forEach(slider=>{
-  const slides=$$('[data-review-slide]',slider);
-  if(!slides.length)return;
-  const dotsWrap=$('[data-review-dots]',slider);
-  let index=0,timer;
-  const dots=slides.map((_,i)=>{
-    const b=document.createElement('button');
-    b.type='button';b.className='review-dot'+(i===0?' is-active':'');
-    b.setAttribute('aria-label',`${isEN()?'Show review':'Rezension anzeigen'} ${i+1}`);
-    b.addEventListener('click',()=>show(i,true));dotsWrap?.appendChild(b);return b;
-  });
-  function show(i,restart=false){
-    index=(i+slides.length)%slides.length;
-    slides.forEach((s,n)=>s.classList.toggle('is-active',n===index));
-    dots.forEach((d,n)=>d.classList.toggle('is-active',n===index));
-    if(restart)start();
-  }
-  function start(){clearInterval(timer);timer=setInterval(()=>show(index+1),6000)}
-  $('[data-review-prev]',slider)?.addEventListener('click',()=>show(index-1,true));
-  $('[data-review-next]',slider)?.addEventListener('click',()=>show(index+1,true));
-  slider.addEventListener('mouseenter',()=>clearInterval(timer));
-  slider.addEventListener('mouseleave',start);
-  show(0);start();
-});
-'''
-          if jmarker in s:
-            s=s.split(jmarker)[0].rstrip()+"\n\n"+jblock
-          else:
-            s=s.rstrip()+"\n\n"+jblock
+          js=Path('script.js'); s=js.read_text(); marker='// Customer review sliders'
+          block='''// Customer review sliders
+$$('[data-review-slider]').forEach(slider=>{const slides=$$('[data-review-slide]',slider);if(!slides.length)return;const dotsWrap=$('[data-review-dots]',slider);let index=0,timer;const dots=slides.map((_,i)=>{const b=document.createElement('button');b.type='button';b.className='review-dot'+(i===0?' is-active':'');b.setAttribute('aria-label',`${isEN()?'Show review':'Rezension anzeigen'} ${i+1}`);b.addEventListener('click',()=>show(i,true));dotsWrap?.appendChild(b);return b});function show(i,restart=false){index=(i+slides.length)%slides.length;slides.forEach((s,n)=>s.classList.toggle('is-active',n===index));dots.forEach((d,n)=>d.classList.toggle('is-active',n===index));if(restart)start()}function start(){clearInterval(timer);timer=setInterval(()=>show(index+1),6000)}$('[data-review-prev]',slider)?.addEventListener('click',()=>show(index-1,true));$('[data-review-next]',slider)?.addEventListener('click',()=>show(index+1,true));slider.addEventListener('mouseenter',()=>clearInterval(timer));slider.addEventListener('mouseleave',start);show(0);start()});\n'''
+          s=(s.split(marker)[0].rstrip()+'\n\n'+block) if marker in s else (s.rstrip()+'\n\n'+block)
           js.write_text(s)
           PY
       - name: Commit changes
