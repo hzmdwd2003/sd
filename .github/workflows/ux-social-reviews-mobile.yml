@@ -1,0 +1,144 @@
+name: Improve social reviews and mobile inquiry
+
+on:
+  push:
+    paths:
+      - '.github/workflows/ux-social-reviews-mobile.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  update-site:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Apply requested UX updates
+        shell: bash
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+
+          # 1) Update CTA wording across German pages without changing page structure.
+          replacements = {
+              '>Jetzt anfragen<': '>Jetzt kostenlos anfragen<',
+              '>Direkt per WhatsApp<': '>Kostenlos Ihre Fahrt anfragen<',
+              '>Jetzt auf WhatsApp anfragen<': '>Kostenlos per WhatsApp anfragen<',
+              '>Preis per WhatsApp anfragen<': '>Kostenlos Preis anfragen<',
+              '>Fahrt anfragen<': '>Kostenlos Fahrt anfragen<',
+              '>XL-Preis anfragen<': '>XL-Preis kostenlos anfragen<',
+          }
+          for p in Path('.').glob('*.html'):
+              if p.name == 'image-check.html':
+                  continue
+              text = p.read_text(encoding='utf-8')
+              for old, new in replacements.items():
+                  text = text.replace(old, new)
+              p.write_text(text, encoding='utf-8')
+
+          # 2) Add review/social section to homepage, based only on confirmed 5/5 rating and Google profile link.
+          p = Path('index.html')
+          text = p.read_text(encoding='utf-8')
+          review_section = '''
+
+  <!-- KUNDENBEWERTUNGEN & SOCIAL -->
+  <section class="section section-reviews" id="bewertungen">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow">Kundenbewertungen</span>
+        <h2>5,0 / 5 Sterne bei Google.</h2>
+        <p>Echte Erfahrungen unserer Fahrgäste. Lesen Sie die aktuellen Rezensionen direkt auf unserem Google-Unternehmensprofil.</p>
+      </div>
+
+      <div class="review-grid">
+        <a class="review-card review-card-featured" href="https://www.google.com/maps/search/?api=1&query=SD%20Flughafentransfer%20Skyline%20Drive%20GmbH" target="_blank" rel="noopener">
+          <div class="review-stars" aria-label="5 von 5 Sternen">★★★★★</div>
+          <strong>5,0 / 5 bei Google</strong>
+          <p>Unsere aktuelle Bewertung auf Google. Tippen Sie hier, um das Unternehmensprofil und die Kundenstimmen zu öffnen.</p>
+          <span>Google Rezensionen ansehen →</span>
+        </a>
+
+        <a class="review-card" href="https://www.google.com/maps/search/?api=1&query=SD%20Flughafentransfer%20Skyline%20Drive%20GmbH" target="_blank" rel="noopener">
+          <div class="review-stars" aria-label="5 von 5 Sternen">★★★★★</div>
+          <strong>Erfahrungen unserer Kunden</strong>
+          <p>Pünktlichkeit, angenehme Fahrten und ein klarer Preis vor der Buchung stehen bei unserem Service im Mittelpunkt.</p>
+          <span>Alle Rezensionen öffnen →</span>
+        </a>
+
+        <a class="review-card" href="https://g.page/r/CQssm-DfUmlzECA/review" target="_blank" rel="noopener">
+          <div class="review-stars" aria-label="5 Sterne">★★★★★</div>
+          <strong>Schon mit uns gefahren?</strong>
+          <p>Teilen Sie Ihre Erfahrung direkt auf Google und helfen Sie anderen Fahrgästen bei der Auswahl.</p>
+          <span>Google Bewertung abgeben →</span>
+        </a>
+      </div>
+
+      <div class="social-proof-row">
+        <div>
+          <strong>Folgen Sie Skyline Drive</strong>
+          <span>Neuigkeiten, Fahrzeuge und Einblicke rund um unseren Flughafentransfer.</span>
+        </div>
+        <div class="social-links">
+          <a class="social-link instagram" href="https://www.instagram.com/Skylinedrive_Frankfurt/" target="_blank" rel="noopener" aria-label="Instagram Skylinedrive Frankfurt">Instagram · @Skylinedrive_Frankfurt</a>
+          <span class="social-link facebook pending" title="Facebook-Profil-Link noch nicht hinterlegt">Facebook</span>
+        </div>
+      </div>
+    </div>
+  </section>
+'''
+          if 'id="bewertungen"' not in text:
+              text = text.replace('</main>', review_section + '\n</main>')
+          p.write_text(text, encoding='utf-8')
+
+          # 3) Add mobile form simplification and review/social styling.
+          cssp = Path('styles.css')
+          css = cssp.read_text(encoding='utf-8')
+          addon = r'''
+
+/* reviews-social-mobile-form-20260822 */
+.section-reviews{background:#f5f6f7;color:#0a1118}
+.review-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;align-items:stretch}
+.review-card{display:flex;flex-direction:column;min-height:255px;padding:28px;border:1px solid #dde3e8;border-radius:18px;background:#fff;box-shadow:0 14px 34px rgba(15,31,46,.07);transition:transform .2s ease,box-shadow .2s ease,border-color .2s ease}
+.review-card:hover{transform:translateY(-3px);box-shadow:0 22px 45px rgba(15,31,46,.12);border-color:#c9d2da}
+.review-card-featured{border-top:4px solid #f5b301}
+.review-stars{font-size:22px;letter-spacing:3px;color:#f5b301;margin-bottom:18px;line-height:1}
+.review-card strong{font-size:20px;letter-spacing:-.025em;margin-bottom:10px}
+.review-card p{font-size:13px;color:#6b7885;margin:0 0 20px}
+.review-card span{margin-top:auto;font-size:12px;font-weight:800;color:#071019}
+.social-proof-row{margin-top:22px;padding:20px 22px;border-radius:16px;background:#071019;color:#fff;display:flex;align-items:center;justify-content:space-between;gap:20px}
+.social-proof-row>div:first-child{display:grid;gap:3px}.social-proof-row strong{font-size:16px}.social-proof-row span{font-size:11px;color:#9eabb8}
+.social-links{display:flex;gap:9px;flex-wrap:wrap;justify-content:flex-end}
+.social-link{display:inline-flex;align-items:center;justify-content:center;min-height:42px;padding:0 14px;border-radius:999px;border:1px solid rgba(255,255,255,.16);font-size:11px!important;font-weight:800;color:#fff!important}
+.social-link.instagram{background:linear-gradient(115deg,#6a35c7,#cf3168,#e48c2f);border:0}
+.social-link.facebook{background:#1877f2;border:0}.social-link.pending{opacity:.45;cursor:default}
+
+@media(max-width:900px){.review-grid{grid-template-columns:1fr 1fr}.review-card-featured{grid-column:1/-1}.social-proof-row{align-items:flex-start;flex-direction:column}.social-links{justify-content:flex-start}}
+
+@media(max-width:680px){
+  /* Keep the booking request short and focused on mobile: pickup, destination, passengers and date/time. */
+  .inquiry-card .field:has([name="child_seats"]),
+  .inquiry-card .field:has([name="luggage"]),
+  .inquiry-card .field:has([name="flight"]),
+  .inquiry-card .return-trip{display:none!important}
+  .inquiry-card .form-grid{grid-template-columns:1fr 1fr!important}
+  .inquiry-card .field.wide{grid-column:1/-1!important}
+  .inquiry-card{padding:18px!important}
+  .card-head{margin-bottom:14px!important}.card-head h2{font-size:20px!important}.card-head p{font-size:10px!important}
+  .form-assurance{justify-content:center!important}
+  .review-grid{grid-template-columns:1fr}.review-card-featured{grid-column:auto}.review-card{min-height:0;padding:22px}
+  .section-reviews .section-head{text-align:left;margin-left:0}.section-reviews .section-head h2{font-size:32px!important}
+  .social-links{width:100%}.social-link{width:100%}
+}
+'''
+          if 'reviews-social-mobile-form-20260822' not in css:
+              css += addon
+          cssp.write_text(css, encoding='utf-8')
+          PY
+
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add index.html styles.css *.html
+          if ! git diff --cached --quiet; then
+            git commit -m "Add reviews social proof and simplify mobile inquiry"
+            git push
+          fi
