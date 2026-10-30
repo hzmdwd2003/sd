@@ -41,7 +41,7 @@ function waText(form){
   return lines.join('\n');
 }
 
-$('[data-whatsapp]').forEach(a=>{
+$$('[data-whatsapp]').forEach(a=>{
   const msg=isEN()?'Hello SD Airport Transfer, I would like to request a transfer.':'Hallo SD Flughafentransfer, ich möchte eine Fahrt anfragen.';
   a.href=`https://wa.me/${SD.whatsapp}?text=${encodeURIComponent(msg)}`;
   a.target='_blank';a.rel='noopener';
@@ -72,7 +72,7 @@ if('IntersectionObserver' in window){
   $$('.reveal,.vehicle-card').forEach(x=>x.classList.add('is-visible'));
 }
 
-$('a[href^="tel:"]').forEach(a=>{
+$$('a[href^="tel:"]').forEach(a=>{
   a.addEventListener('click',()=>trackAdsConversion('phone_click'));
 });
 
