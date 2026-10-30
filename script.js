@@ -4,6 +4,17 @@ const $=(s,c=document)=>c.querySelector(s);
 const $$=(s,c=document)=>[...c.querySelectorAll(s)];
 const isEN=()=>document.documentElement.lang.toLowerCase().startsWith('en');
 
+/* ADS CONVERSION TRACKING */
+const ADS_CONVERSION_SEND_TO='AW-18306707563/na3pCNqYx98cEOvgqJlE';
+function trackAdsConversion(source){
+  if(typeof window.gtag!=='function') return;
+  window.gtag('event','conversion',{
+    send_to:ADS_CONVERSION_SEND_TO,
+    event_category:'lead',
+    event_label:source
+  });
+}
+
 function waText(form){
   const f=new FormData(form);
   const en=isEN();
@@ -30,10 +41,11 @@ function waText(form){
   return lines.join('\n');
 }
 
-$$('[data-whatsapp]').forEach(a=>{
+$('[data-whatsapp]').forEach(a=>{
   const msg=isEN()?'Hello SD Airport Transfer, I would like to request a transfer.':'Hallo SD Flughafentransfer, ich möchte eine Fahrt anfragen.';
   a.href=`https://wa.me/${SD.whatsapp}?text=${encodeURIComponent(msg)}`;
   a.target='_blank';a.rel='noopener';
+  a.addEventListener('click',()=>trackAdsConversion('whatsapp_click'));
 });
 
 $$('[data-inquiry-form]').forEach(form=>{
@@ -48,6 +60,7 @@ $$('[data-inquiry-form]').forEach(form=>{
   });
   form.addEventListener('submit',e=>{
     e.preventDefault();
+    trackAdsConversion('inquiry_form_submit');
     window.open(`https://wa.me/${SD.whatsapp}?text=${encodeURIComponent(waText(form))}`,'_blank','noopener');
   });
 });
@@ -58,6 +71,10 @@ if('IntersectionObserver' in window){
 }else{
   $$('.reveal,.vehicle-card').forEach(x=>x.classList.add('is-visible'));
 }
+
+$('a[href^="tel:"]').forEach(a=>{
+  a.addEventListener('click',()=>trackAdsConversion('phone_click'));
+});
 
 const nav=$('[data-nav]'),toggle=$('[data-nav-toggle]');
 toggle?.addEventListener('click',()=>nav?.classList.toggle('is-open'));
