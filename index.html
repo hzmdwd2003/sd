@@ -50,6 +50,12 @@
     .faq-item[open] summary::after{content:"–"}
     .faq-item p{margin:0;padding:0 22px 20px;color:#667785;font-size:14px;line-height:1.65}
     .faq-cta{display:flex;justify-content:center;margin-top:26px}
+    .faq-more{margin-top:16px}
+    .faq-more>summary{list-style:none;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:8px;width:max-content;margin:0 auto;padding:12px 20px;border:1px solid #cfd8df;border-radius:999px;background:#fff;color:#071019;font-size:13px;font-weight:800;box-shadow:0 8px 20px rgba(7,16,25,.05)}
+    .faq-more>summary::-webkit-details-marker{display:none}
+    .faq-more>summary::after{content:"↓";font-size:15px}
+    .faq-more[open]>summary::after{content:"↑"}
+    .faq-more .faq-list{margin-top:18px}
     @media(max-width:680px){
       .faq-item summary{padding:17px 48px 17px 17px;font-size:15px}
       .faq-item summary::after{right:17px}
@@ -81,7 +87,16 @@
       {"@type":"Question","name":"Was passiert, wenn sich mein Flug verspätet?","acceptedAnswer":{"@type":"Answer","text":"Mit der Flugnummer können Änderungen bei der Abholung besser berücksichtigt und abgestimmt werden. Bei Änderungen empfiehlt sich zusätzlich eine kurze Nachricht per WhatsApp."}},
       {"@type":"Question","name":"Gibt es Flughafentransfers mit Kindersitz?","acceptedAnswer":{"@type":"Answer","text":"Ja. Kindersitze können bei der Anfrage angegeben und je nach Bedarf vorbereitet werden."}},
       {"@type":"Question","name":"Kann ich mit einer Gruppe und viel Gepäck zum Flughafen fahren?","acceptedAnswer":{"@type":"Answer","text":"Ja. Für Familien und Gruppen stehen größere Fahrzeuge wie Vito oder V-Klasse zur Verfügung. Je nach Fahrzeug sind bis zu 8 Personen und mehrere Koffer möglich."}},
-      {"@type":"Question","name":"Was macht einen seriösen und bequemen Flughafentransfer aus?","acceptedAnswer":{"@type":"Answer","text":"Klare Preise vor der Buchung, direkter Kontakt, ein passendes Fahrzeug und eine abgestimmte Abholzeit sorgen für einen unkomplizierten Ablauf."}}
+      {"@type":"Question","name":"Was macht einen seriösen und bequemen Flughafentransfer aus?","acceptedAnswer":{"@type":"Answer","text":"Klare Preise vor der Buchung, direkter Kontakt, ein passendes Fahrzeug und eine abgestimmte Abholzeit sorgen für einen unkomplizierten Ablauf."}},
+      {"@type":"Question","name":"Was mache ich, wenn wir 8 Personen sind und viel Gepäck haben?","acceptedAnswer":{"@type":"Answer","text":"Geben Sie bei der Anfrage die genaue Personenzahl und möglichst auch die Anzahl der Koffer an. Für Gruppen bis 8 Personen stehen größere Fahrzeuge wie Vito oder V-Klasse zur Verfügung. Bei besonders viel Gepäck prüfen wir vorab, ob ein Fahrzeug ausreicht."}},
+      {"@type":"Question","name":"Wie komme ich am günstigsten zum Frankfurt Flughafen?","acceptedAnswer":{"@type":"Answer","text":"Das hängt von Startort, Personenzahl und Gepäck ab. Bei mehreren Personen kann ein gemeinsamer Flughafentransfer besonders praktisch sein, weil Sie direkt abgeholt werden und den Preis vor der Buchung kennen. Unsere Fahrten aus Frankfurt starten ab 29 €."}},
+      {"@type":"Question","name":"Wie komme ich am schnellsten zum Flughafen?","acceptedAnswer":{"@type":"Answer","text":"Eine direkte Fahrt ohne Umstieg ist besonders einfach, wenn Abholzeit und Route vorher feststehen. Wir holen Sie an der vereinbarten Adresse ab und fahren direkt zum Flughafen."}},
+      {"@type":"Question","name":"Wer ist flexibel erreichbar, wenn ich kurzfristig zum Flughafen muss?","acceptedAnswer":{"@type":"Answer","text":"Sie können SD Flughafentransfer direkt per WhatsApp oder Telefon kontaktieren. Fahrten sind 24/7 auf Anfrage möglich, abhängig von der aktuellen Fahrzeug- und Fahrerverfügbarkeit."}},
+      {"@type":"Question","name":"Kann ich auch nachts oder früh morgens zum Flughafen fahren?","acceptedAnswer":{"@type":"Answer","text":"Ja. Frühfahrten und Nachtfahrten sind auf Anfrage möglich. Am besten senden Sie die gewünschte Abholzeit möglichst früh, damit die Verfügbarkeit bestätigt werden kann."}},
+      {"@type":"Question","name":"Kann ich meinen Flughafentransfer sehr kurzfristig buchen?","acceptedAnswer":{"@type":"Answer","text":"Kurzfristige Anfragen sind möglich. Ob eine Fahrt übernommen werden kann, hängt von der aktuellen Verfügbarkeit ab. Am schnellsten erreichen Sie uns per WhatsApp oder telefonisch."}},
+      {"@type":"Question","name":"Wo werde ich am Flughafen abgeholt?","acceptedAnswer":{"@type":"Answer","text":"Der konkrete Treffpunkt wird vor der Abholung direkt mit Ihnen abgestimmt. Bei Flughafenabholungen hilft die Flugnummer dabei, die Abholung besser zu koordinieren."}},
+      {"@type":"Question","name":"Kann ich Hin- und Rückfahrt gleichzeitig buchen?","acceptedAnswer":{"@type":"Answer","text":"Ja. Sie können bei der Anfrage direkt eine Rückfahrt ergänzen. So lassen sich beide Fahrten, Zeiten und Treffpunkte zusammen abstimmen."}}
+
     ]
   }
   </script>
@@ -258,6 +273,51 @@
           <p>Klare Preise vor der Buchung, direkter Kontakt, ein passendes Fahrzeug sowie eine eindeutig abgestimmte Abholzeit sorgen für einen unkomplizierten Ablauf. Genau darauf ist unser Transferprozess ausgelegt.</p>
         </details>
       </div>
+
+      <details class="faq-more">
+        <summary>Mehr anzeigen</summary>
+        <div class="faq-list">
+          <details class="faq-item">
+            <summary>Was mache ich, wenn wir 8 Personen sind und viel Gepäck haben?</summary>
+            <p>Geben Sie bei der Anfrage die genaue Personenzahl und möglichst auch die Anzahl der Koffer an. Für Gruppen bis 8 Personen stehen größere Fahrzeuge wie Vito oder V-Klasse zur Verfügung. Bei besonders viel Gepäck prüfen wir vorab, ob ein Fahrzeug ausreicht.</p>
+          </details>
+
+          <details class="faq-item">
+            <summary>Wie komme ich am günstigsten zum Frankfurt Flughafen?</summary>
+            <p>Das hängt von Startort, Personenzahl und Gepäck ab. Bei mehreren Personen kann ein gemeinsamer Flughafentransfer besonders praktisch sein, weil Sie direkt abgeholt werden und den Preis vor der Buchung kennen. Unsere Fahrten aus Frankfurt starten ab 29 €.</p>
+          </details>
+
+          <details class="faq-item">
+            <summary>Wie komme ich am schnellsten zum Flughafen?</summary>
+            <p>Eine direkte Fahrt ohne Umstieg ist besonders einfach, wenn Abholzeit und Route vorher feststehen. Wir holen Sie an der vereinbarten Adresse ab und fahren direkt zum Flughafen.</p>
+          </details>
+
+          <details class="faq-item">
+            <summary>Wer ist flexibel erreichbar, wenn ich kurzfristig zum Flughafen muss?</summary>
+            <p>Sie können SD Flughafentransfer direkt per WhatsApp oder Telefon kontaktieren. Fahrten sind 24/7 auf Anfrage möglich, abhängig von der aktuellen Fahrzeug- und Fahrerverfügbarkeit.</p>
+          </details>
+
+          <details class="faq-item">
+            <summary>Kann ich auch nachts oder früh morgens zum Flughafen fahren?</summary>
+            <p>Ja. Frühfahrten und Nachtfahrten sind auf Anfrage möglich. Am besten senden Sie die gewünschte Abholzeit möglichst früh, damit die Verfügbarkeit bestätigt werden kann.</p>
+          </details>
+
+          <details class="faq-item">
+            <summary>Kann ich meinen Flughafentransfer sehr kurzfristig buchen?</summary>
+            <p>Kurzfristige Anfragen sind möglich. Ob eine Fahrt übernommen werden kann, hängt von der aktuellen Verfügbarkeit ab. Am schnellsten erreichen Sie uns per WhatsApp oder telefonisch.</p>
+          </details>
+
+          <details class="faq-item">
+            <summary>Wo werde ich am Flughafen abgeholt?</summary>
+            <p>Der konkrete Treffpunkt wird vor der Abholung direkt mit Ihnen abgestimmt. Bei Flughafenabholungen hilft die Flugnummer dabei, die Abholung besser zu koordinieren.</p>
+          </details>
+
+          <details class="faq-item">
+            <summary>Kann ich Hin- und Rückfahrt gleichzeitig buchen?</summary>
+            <p>Ja. Sie können bei der Anfrage direkt eine Rückfahrt ergänzen. So lassen sich beide Fahrten, Zeiten und Treffpunkte zusammen abstimmen.</p>
+          </details>
+        </div>
+      </details>
 
       <div class="faq-cta">
         <a class="btn btn-whatsapp" data-whatsapp>Kostenlos Fahrt anfragen</a>
