@@ -38,6 +38,24 @@
     .place-suggestion:last-child{border-bottom:0}.place-suggestion:hover,.place-suggestion.active{background:#f4f7f9}
     .place-pin{font-size:15px;line-height:1.4}.place-copy{display:grid;gap:2px}.place-copy strong{font-size:12px}.place-copy small{font-size:10px;color:#7d8994}
     .maps-link{display:inline-flex;align-items:center;gap:6px;margin-top:7px;font-size:10px;font-weight:800;color:#687987;text-decoration:none}.maps-link:hover{color:#071019}
+
+    /* FAQ */
+    .faq-section{background:#f5f6f7;color:#071019}
+    .faq-wrap{max-width:980px;margin:0 auto}
+    .faq-list{display:grid;gap:12px;margin-top:34px}
+    .faq-item{background:#fff;border:1px solid #dde3e8;border-radius:16px;overflow:hidden;box-shadow:0 10px 26px rgba(7,16,25,.05)}
+    .faq-item summary{list-style:none;cursor:pointer;padding:20px 54px 20px 22px;font-size:16px;font-weight:800;position:relative}
+    .faq-item summary::-webkit-details-marker{display:none}
+    .faq-item summary::after{content:"+";position:absolute;right:22px;top:50%;transform:translateY(-50%);font-size:24px;font-weight:500;color:#687987}
+    .faq-item[open] summary::after{content:"–"}
+    .faq-item p{margin:0;padding:0 22px 20px;color:#667785;font-size:14px;line-height:1.65}
+    .faq-cta{display:flex;justify-content:center;margin-top:26px}
+    @media(max-width:680px){
+      .faq-item summary{padding:17px 48px 17px 17px;font-size:15px}
+      .faq-item summary::after{right:17px}
+      .faq-item p{padding:0 17px 17px;font-size:13px}
+    }
+
     @media(max-width:680px){
       .page-hero-copy h1{font-size:clamp(2.75rem,13vw,4.1rem)!important}
       .page-hero-copy>p{font-size:1rem!important}
@@ -48,6 +66,26 @@
       .inquiry-card input[type="datetime-local"]{font-size:12px!important;padding-left:10px!important;padding-right:6px!important}
     }
   </style>
+
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"FAQPage",
+    "mainEntity":[
+      {"@type":"Question","name":"Was kostet ein günstiger Flughafentransfer zum Frankfurt Airport?","acceptedAnswer":{"@type":"Answer","text":"Fahrten aus Frankfurt zum Flughafen Frankfurt starten ab 29 €. Der genaue Preis hängt von Abholort, Ziel, Personenzahl und Fahrzeug ab. Der finale Preis wird vor der Buchung genannt."}},
+      {"@type":"Question","name":"Wie schnell kann ich einen Flughafentransfer anfragen?","acceptedAnswer":{"@type":"Answer","text":"Die Anfrage ist direkt über das Formular oder per WhatsApp möglich. Abholort, Ziel, Datum und Personenzahl können direkt übermittelt werden."}},
+      {"@type":"Question","name":"Ist die Anfrage für meinen Flughafentransfer kostenlos?","acceptedAnswer":{"@type":"Answer","text":"Ja. Die Preisanfrage ist kostenlos und unverbindlich. Erst nach Bestätigung des Angebots wird daraus eine Buchung."}},
+      {"@type":"Question","name":"Bekomme ich den Preis vor der Buchung genannt?","acceptedAnswer":{"@type":"Answer","text":"Ja. Der Preis wird vor der Buchung genannt, damit die Kosten vor Fahrtbeginn transparent sind."}},
+      {"@type":"Question","name":"Wie einfach funktioniert die Buchung per WhatsApp?","acceptedAnswer":{"@type":"Answer","text":"Abholort, Ziel, Datum und Personenzahl werden eingetragen und die Anfrage kann direkt in WhatsApp geöffnet werden. Weitere Details können dort abgestimmt werden."}},
+      {"@type":"Question","name":"Kann ich direkt zu Hause abgeholt und zum Flughafen gefahren werden?","acceptedAnswer":{"@type":"Answer","text":"Ja. Der Transfer kann direkt an einer gewünschten Adresse starten und ohne Umstieg zum vereinbarten Ziel führen."}},
+      {"@type":"Question","name":"Was passiert, wenn sich mein Flug verspätet?","acceptedAnswer":{"@type":"Answer","text":"Mit der Flugnummer können Änderungen bei der Abholung besser berücksichtigt und abgestimmt werden. Bei Änderungen empfiehlt sich zusätzlich eine kurze Nachricht per WhatsApp."}},
+      {"@type":"Question","name":"Gibt es Flughafentransfers mit Kindersitz?","acceptedAnswer":{"@type":"Answer","text":"Ja. Kindersitze können bei der Anfrage angegeben und je nach Bedarf vorbereitet werden."}},
+      {"@type":"Question","name":"Kann ich mit einer Gruppe und viel Gepäck zum Flughafen fahren?","acceptedAnswer":{"@type":"Answer","text":"Ja. Für Familien und Gruppen stehen größere Fahrzeuge wie Vito oder V-Klasse zur Verfügung. Je nach Fahrzeug sind bis zu 8 Personen und mehrere Koffer möglich."}},
+      {"@type":"Question","name":"Was macht einen seriösen und bequemen Flughafentransfer aus?","acceptedAnswer":{"@type":"Answer","text":"Klare Preise vor der Buchung, direkter Kontakt, ein passendes Fahrzeug und eine abgestimmte Abholzeit sorgen für einen unkomplizierten Ablauf."}}
+    ]
+  }
+  </script>
+
 </head>
 <body>
 <header class="site-header">
@@ -160,6 +198,73 @@
       </div>
     </div>
   </section>
+
+  <section class="section faq-section" id="faq">
+    <div class="wrap faq-wrap">
+      <div class="section-head">
+        <span class="eyebrow">Häufige Fragen</span>
+        <h2>Flughafentransfer einfach erklärt.</h2>
+        <p>Die wichtigsten Antworten zu Preis, Buchung, Abholung, Gepäck und einer bequemen Fahrt zum Flughafen.</p>
+      </div>
+
+      <div class="faq-list">
+        <details class="faq-item">
+          <summary>Was kostet ein günstiger Flughafentransfer zum Frankfurt Airport?</summary>
+          <p>Fahrten aus Frankfurt zum Flughafen Frankfurt starten bei uns ab 29 €. Der genaue Preis hängt vom Abholort, Ziel, der Personenzahl und dem benötigten Fahrzeug ab. Den finalen Preis erhalten Sie vor der Buchung.</p>
+        </details>
+
+        <details class="faq-item">
+          <summary>Wie schnell kann ich einen Flughafentransfer anfragen?</summary>
+          <p>Die Anfrage ist direkt über das Formular oder per WhatsApp möglich. Sie senden Abholort, Ziel, Datum und Personenzahl und wir können die Fahrt anschließend je nach Verfügbarkeit schnell mit Ihnen abstimmen.</p>
+        </details>
+
+        <details class="faq-item">
+          <summary>Ist die Anfrage für meinen Flughafentransfer kostenlos?</summary>
+          <p>Ja. Die Preisanfrage ist kostenlos und unverbindlich. Erst wenn Sie die angebotene Fahrt bestätigen, wird daraus eine Buchung.</p>
+        </details>
+
+        <details class="faq-item">
+          <summary>Bekomme ich den Preis vor der Buchung genannt?</summary>
+          <p>Ja. Sie erhalten den Preis vor der Buchung, damit Sie vor der Fahrt wissen, mit welchem Betrag Sie rechnen können. So bleibt die Anfrage transparent und einfach.</p>
+        </details>
+
+        <details class="faq-item">
+          <summary>Wie einfach funktioniert die Buchung per WhatsApp?</summary>
+          <p>Abholort, Ziel, Datum und Personenzahl eintragen und die Anfrage mit einem Klick in WhatsApp öffnen. Dort können weitere Details wie Gepäck, Flugnummer oder Kindersitze direkt abgestimmt werden.</p>
+        </details>
+
+        <details class="faq-item">
+          <summary>Kann ich direkt zu Hause abgeholt und zum Flughafen gefahren werden?</summary>
+          <p>Ja. Der Transfer kann direkt an Ihrer gewünschten Adresse starten und ohne Umstieg zum vereinbarten Ziel führen. Das ist besonders bequem mit Gepäck, Kindern oder bei frühen Abflugzeiten.</p>
+        </details>
+
+        <details class="faq-item">
+          <summary>Was passiert, wenn sich mein Flug verspätet?</summary>
+          <p>Wenn Sie uns Ihre Flugnummer mitteilen, können Änderungen bei der Abholung besser berücksichtigt und mit Ihnen abgestimmt werden. Bei Änderungen empfehlen wir zusätzlich eine kurze Nachricht per WhatsApp.</p>
+        </details>
+
+        <details class="faq-item">
+          <summary>Gibt es Flughafentransfers mit Kindersitz?</summary>
+          <p>Ja. Kindersitze können bei der Anfrage angegeben werden. Teilen Sie uns Anzahl und Bedarf möglichst früh mit, damit das passende Fahrzeug vorbereitet werden kann.</p>
+        </details>
+
+        <details class="faq-item">
+          <summary>Kann ich mit einer Gruppe und viel Gepäck zum Flughafen fahren?</summary>
+          <p>Ja. Für Familien und Gruppen stehen größere Fahrzeuge wie Vito oder V-Klasse zur Verfügung. Je nach Fahrzeug sind Fahrten mit bis zu 8 Personen und mehreren Koffern möglich.</p>
+        </details>
+
+        <details class="faq-item">
+          <summary>Was macht einen seriösen und bequemen Flughafentransfer aus?</summary>
+          <p>Klare Preise vor der Buchung, direkter Kontakt, ein passendes Fahrzeug sowie eine eindeutig abgestimmte Abholzeit sorgen für einen unkomplizierten Ablauf. Genau darauf ist unser Transferprozess ausgelegt.</p>
+        </details>
+      </div>
+
+      <div class="faq-cta">
+        <a class="btn btn-whatsapp" data-whatsapp>Kostenlos Fahrt anfragen</a>
+      </div>
+    </div>
+  </section>
+
 </main>
 
 <footer class="footer">
