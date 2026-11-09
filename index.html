@@ -18,8 +18,8 @@
   </script>
   <meta charset="utf-8"/>
   <meta name="viewport" content="width=device-width,initial-scale=1"/>
-  <title>SD Flughafentransfer Frankfurt | FRA, Hahn & XL</title>
-  <meta name="description" content="Günstiger Flughafentransfer Frankfurt – einfach, schnell und bequem zum Frankfurt Airport. Festpreis vor Buchung, WhatsApp-Anfrage und direkte Abholung."/>
+  <title>Flughafentransfer Frankfurt ab 29 € | SD Flughafentransfer</title>
+  <meta name="description" content="Flughafentransfer Frankfurt ab 29 €: direkte Abholung, Festpreis vor Buchung, WhatsApp- oder Telefonanfrage. Für Frankfurt, Mannheim, Heidelberg und Umgebung."/>
   <meta name="theme-color" content="#071019"/>
   <link rel="icon" href="assets/sd-mark.png"/>
   <link rel="stylesheet" href="styles.css?v=16"/>
@@ -45,6 +45,19 @@
     .place-suggestion:last-child{border-bottom:0}.place-suggestion:hover,.place-suggestion.active{background:#f4f7f9}
     .place-pin{font-size:15px;line-height:1.4}.place-copy{display:grid;gap:2px}.place-copy strong{font-size:12px}.place-copy small{font-size:10px;color:#7d8994}
     .maps-link{display:inline-flex;align-items:center;gap:6px;margin-top:7px;font-size:10px;font-weight:800;color:#687987;text-decoration:none}.maps-link:hover{color:#071019}
+
+    /* Conversion / trust sections */
+    .booking-steps{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:30px}
+    .booking-step,.why-card{padding:24px;border:1px solid #dde3e8;border-radius:16px;background:#fff;box-shadow:0 10px 26px rgba(7,16,25,.05)}
+    .booking-step b{display:inline-flex;width:34px;height:34px;align-items:center;justify-content:center;border-radius:50%;background:#071019;color:#fff;margin-bottom:14px}
+    .booking-step h3,.why-card h3{margin:0 0 8px;font-size:18px}
+    .booking-step p,.why-card p{margin:0;color:#687987;font-size:13px;line-height:1.65}
+    .why-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:30px}
+    .flight-note{display:grid;grid-template-columns:1.2fr .8fr;gap:28px;align-items:center;padding:30px;border-radius:20px;background:#071019;color:#fff}
+    .flight-note p{color:#b8c3cc;line-height:1.7}
+    .flight-note .trust-mini{display:grid;gap:10px}.flight-note .trust-mini span{padding:12px 14px;border:1px solid rgba(255,255,255,.14);border-radius:12px;font-size:13px;font-weight:700}
+    @media(max-width:900px){.booking-steps,.why-grid{grid-template-columns:1fr 1fr}.flight-note{grid-template-columns:1fr}}
+    @media(max-width:680px){.booking-steps,.why-grid{grid-template-columns:1fr}.booking-step,.why-card{padding:20px}.flight-note{padding:22px}}
 
     /* FAQ */
     .faq-section{background:#f5f6f7;color:#071019}
@@ -83,27 +96,54 @@
   <script type="application/ld+json">
   {
     "@context":"https://schema.org",
+    "@type":"LocalBusiness",
+    "@id":"https://sd-flughafentransfer.de/#business",
+    "name":"SD Flughafentransfer | Skyline Drive GmbH",
+    "legalName":"Skyline Drive GmbH",
+    "url":"https://sd-flughafentransfer.de/",
+    "logo":"https://sd-flughafentransfer.de/assets/sd-logo.png",
+    "image":"https://sd-flughafentransfer.de/assets/e-class.png",
+    "telephone":"+49 15567 568589",
+    "email":"m.skylinedrive@gmail.com",
+    "priceRange":"€€",
+    "address":{
+      "@type":"PostalAddress",
+      "streetAddress":"Friedhofstraße 13",
+      "postalCode":"63263",
+      "addressLocality":"Neu-Isenburg",
+      "addressCountry":"DE"
+    },
+    "areaServed":[
+      "Frankfurt am Main","Neu-Isenburg","Offenbach am Main","Mainz","Wiesbaden",
+      "Darmstadt","Mannheim","Heidelberg","Gießen","Marburg"
+    ],
+    "sameAs":["https://www.instagram.com/Skylinedrive_Frankfurt/"],
+    "contactPoint":[{
+      "@type":"ContactPoint",
+      "telephone":"+49 15567 568589",
+      "contactType":"customer service",
+      "availableLanguage":["de","en"]
+    }]
+  }
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
     "@type":"FAQPage",
     "mainEntity":[
-      {"@type":"Question","name":"Was kostet ein günstiger Flughafentransfer zum Frankfurt Airport?","acceptedAnswer":{"@type":"Answer","text":"Fahrten aus Frankfurt zum Flughafen Frankfurt starten ab 29 €. Der genaue Preis hängt von Abholort, Ziel, Personenzahl und Fahrzeug ab. Der finale Preis wird vor der Buchung genannt."}},
-      {"@type":"Question","name":"Wie schnell kann ich einen Flughafentransfer anfragen?","acceptedAnswer":{"@type":"Answer","text":"Die Anfrage ist direkt über das Formular oder per WhatsApp möglich. Abholort, Ziel, Datum und Personenzahl können direkt übermittelt werden."}},
-      {"@type":"Question","name":"Ist die Anfrage für meinen Flughafentransfer kostenlos?","acceptedAnswer":{"@type":"Answer","text":"Ja. Die Preisanfrage ist kostenlos und unverbindlich. Erst nach Bestätigung des Angebots wird daraus eine Buchung."}},
-      {"@type":"Question","name":"Bekomme ich den Preis vor der Buchung genannt?","acceptedAnswer":{"@type":"Answer","text":"Ja. Der Preis wird vor der Buchung genannt, damit die Kosten vor Fahrtbeginn transparent sind."}},
-      {"@type":"Question","name":"Wie einfach funktioniert die Buchung per WhatsApp?","acceptedAnswer":{"@type":"Answer","text":"Abholort, Ziel, Datum und Personenzahl werden eingetragen und die Anfrage kann direkt in WhatsApp geöffnet werden. Weitere Details können dort abgestimmt werden."}},
-      {"@type":"Question","name":"Kann ich direkt zu Hause abgeholt und zum Flughafen gefahren werden?","acceptedAnswer":{"@type":"Answer","text":"Ja. Der Transfer kann direkt an einer gewünschten Adresse starten und ohne Umstieg zum vereinbarten Ziel führen."}},
-      {"@type":"Question","name":"Was passiert, wenn sich mein Flug verspätet?","acceptedAnswer":{"@type":"Answer","text":"Mit der Flugnummer können Änderungen bei der Abholung besser berücksichtigt und abgestimmt werden. Bei Änderungen empfiehlt sich zusätzlich eine kurze Nachricht per WhatsApp."}},
-      {"@type":"Question","name":"Gibt es Flughafentransfers mit Kindersitz?","acceptedAnswer":{"@type":"Answer","text":"Ja. Kindersitze können bei der Anfrage angegeben und je nach Bedarf vorbereitet werden."}},
-      {"@type":"Question","name":"Kann ich mit einer Gruppe und viel Gepäck zum Flughafen fahren?","acceptedAnswer":{"@type":"Answer","text":"Ja. Für Familien und Gruppen stehen größere Fahrzeuge wie Vito oder V-Klasse zur Verfügung. Je nach Fahrzeug sind bis zu 8 Personen und mehrere Koffer möglich."}},
-      {"@type":"Question","name":"Was macht einen seriösen und bequemen Flughafentransfer aus?","acceptedAnswer":{"@type":"Answer","text":"Klare Preise vor der Buchung, direkter Kontakt, ein passendes Fahrzeug und eine abgestimmte Abholzeit sorgen für einen unkomplizierten Ablauf."}},
-      {"@type":"Question","name":"Was mache ich, wenn wir 8 Personen sind und viel Gepäck haben?","acceptedAnswer":{"@type":"Answer","text":"Geben Sie bei der Anfrage die genaue Personenzahl und möglichst auch die Anzahl der Koffer an. Für Gruppen bis 8 Personen stehen größere Fahrzeuge wie Vito oder V-Klasse zur Verfügung. Bei besonders viel Gepäck prüfen wir vorab, ob ein Fahrzeug ausreicht."}},
-      {"@type":"Question","name":"Wie komme ich am günstigsten zum Frankfurt Flughafen?","acceptedAnswer":{"@type":"Answer","text":"Das hängt von Startort, Personenzahl und Gepäck ab. Bei mehreren Personen kann ein gemeinsamer Flughafentransfer besonders praktisch sein, weil Sie direkt abgeholt werden und den Preis vor der Buchung kennen. Unsere Fahrten aus Frankfurt starten ab 29 €."}},
-      {"@type":"Question","name":"Wie komme ich am schnellsten zum Flughafen?","acceptedAnswer":{"@type":"Answer","text":"Eine direkte Fahrt ohne Umstieg ist besonders einfach, wenn Abholzeit und Route vorher feststehen. Wir holen Sie an der vereinbarten Adresse ab und fahren direkt zum Flughafen."}},
-      {"@type":"Question","name":"Wer ist flexibel erreichbar, wenn ich kurzfristig zum Flughafen muss?","acceptedAnswer":{"@type":"Answer","text":"Sie können SD Flughafentransfer direkt per WhatsApp oder Telefon kontaktieren. Fahrten sind 24/7 auf Anfrage möglich, abhängig von der aktuellen Fahrzeug- und Fahrerverfügbarkeit."}},
-      {"@type":"Question","name":"Kann ich auch nachts oder früh morgens zum Flughafen fahren?","acceptedAnswer":{"@type":"Answer","text":"Ja. Frühfahrten und Nachtfahrten sind auf Anfrage möglich. Am besten senden Sie die gewünschte Abholzeit möglichst früh, damit die Verfügbarkeit bestätigt werden kann."}},
-      {"@type":"Question","name":"Kann ich meinen Flughafentransfer sehr kurzfristig buchen?","acceptedAnswer":{"@type":"Answer","text":"Kurzfristige Anfragen sind möglich. Ob eine Fahrt übernommen werden kann, hängt von der aktuellen Verfügbarkeit ab. Am schnellsten erreichen Sie uns per WhatsApp oder telefonisch."}},
-      {"@type":"Question","name":"Wo werde ich am Flughafen abgeholt?","acceptedAnswer":{"@type":"Answer","text":"Der konkrete Treffpunkt wird vor der Abholung direkt mit Ihnen abgestimmt. Bei Flughafenabholungen hilft die Flugnummer dabei, die Abholung besser zu koordinieren."}},
-      {"@type":"Question","name":"Kann ich Hin- und Rückfahrt gleichzeitig buchen?","acceptedAnswer":{"@type":"Answer","text":"Ja. Sie können bei der Anfrage direkt eine Rückfahrt ergänzen. So lassen sich beide Fahrten, Zeiten und Treffpunkte zusammen abstimmen."}}
-
+      {"@type":"Question","name":"Was kostet ein Flughafentransfer zum Frankfurt Airport?","acceptedAnswer":{"@type":"Answer","text":"Fahrten aus Frankfurt zum Flughafen Frankfurt starten ab 29 €. Der genaue Preis hängt von Abholort, Ziel, Personenzahl und Fahrzeug ab. Der konkrete Preis wird vor der Buchung genannt."}},
+      {"@type":"Question","name":"Kann ich einen Flughafentransfer auch kurzfristig buchen?","acceptedAnswer":{"@type":"Answer","text":"Ja. Kurzfristige Anfragen sind je nach Fahrzeug- und Fahrerverfügbarkeit möglich. Am schnellsten erreichen Sie uns per WhatsApp oder telefonisch."}},
+      {"@type":"Question","name":"Bekomme ich den Preis vor der Buchung genannt?","acceptedAnswer":{"@type":"Answer","text":"Ja. Der konkrete Preis wird vor Ihrer Bestätigung genannt."}},
+      {"@type":"Question","name":"Wie funktioniert die Buchung per WhatsApp?","acceptedAnswer":{"@type":"Answer","text":"Abholort, Ziel, Datum und Personenzahl eintragen und die Anfrage direkt in WhatsApp öffnen. Weitere Details können dort abgestimmt werden."}},
+      {"@type":"Question","name":"Was passiert, wenn sich mein Flug verspätet?","acceptedAnswer":{"@type":"Answer","text":"Bei einer Flughafenabholung kann die Flugnummer angegeben werden. Dadurch können Änderungen bei der Abholung besser berücksichtigt werden. Bei einer bekannten Verspätung empfiehlt sich zusätzlich eine kurze Nachricht per WhatsApp."}},
+      {"@type":"Question","name":"Gibt es Flughafentransfers mit Kindersitz?","acceptedAnswer":{"@type":"Answer","text":"Ja. Kindersitze können bei der Anfrage angegeben werden."}},
+      {"@type":"Question","name":"Was mache ich, wenn wir 8 Personen sind und viel Gepäck haben?","acceptedAnswer":{"@type":"Answer","text":"Für Gruppen bis 8 Personen stehen größere Fahrzeuge wie Vito oder V-Klasse zur Verfügung. Bei besonders viel Gepäck wird vorab geprüft, welches Fahrzeug geeignet ist."}},
+      {"@type":"Question","name":"Wie komme ich einfach und günstig zum Frankfurt Flughafen?","acceptedAnswer":{"@type":"Answer","text":"Ein direkter Flughafentransfer bietet Abholung an der vereinbarten Adresse, eine Fahrt ohne Umstieg und einen Preis vor der Buchung. Fahrten aus Frankfurt starten ab 29 €."}},
+      {"@type":"Question","name":"Kann ich auch nachts oder früh morgens zum Flughafen fahren?","acceptedAnswer":{"@type":"Answer","text":"Ja. Früh- und Nachtfahrten sind 24/7 auf Anfrage möglich, abhängig von der aktuellen Verfügbarkeit."}},
+      {"@type":"Question","name":"Wo werde ich am Flughafen abgeholt?","acceptedAnswer":{"@type":"Answer","text":"Der konkrete Treffpunkt wird vor der Abholung direkt abgestimmt. Die Flugnummer hilft bei der Koordination."}},
+      {"@type":"Question","name":"Kann ich Hin- und Rückfahrt gleichzeitig buchen?","acceptedAnswer":{"@type":"Answer","text":"Ja. Bei der Anfrage kann direkt eine Rückfahrt ergänzt werden."}},
+      {"@type":"Question","name":"Kann ich direkt zu Hause abgeholt werden?","acceptedAnswer":{"@type":"Answer","text":"Ja. Der Transfer kann direkt an der gewünschten Adresse starten und ohne Umstieg zum Ziel führen."}}
     ]
   }
   </script>
@@ -133,8 +173,8 @@
     <div class="wrap page-hero-grid">
       <div class="page-hero-copy">
         <span class="kicker">Frankfurt · Mannheim · Heidelberg · Flughafentransfer</span>
-        <h1>Zum Flughafen.<br/><em>Einfach und günstig.</em></h1>
-        <p>Günstiger Flughafentransfer Frankfurt – schnell, bequem und zuverlässig. Strecke senden, Festpreis vorab erhalten und die Fahrt einfach per WhatsApp oder Telefon abstimmen.</p>
+        <h1>Zum Flughafen.<br/><em>Einfach ab 29 €.</em></h1>
+        <p>Flughafentransfer Frankfurt ab 29 € – direkt, bequem und mit Festpreis vor der Buchung. Abholung in Frankfurt, Neu-Isenburg, Offenbach, Mainz, Wiesbaden, Darmstadt, Mannheim, Heidelberg und Umgebung.</p>
         <div class="hero-actions">
           <a class="btn btn-whatsapp" data-whatsapp>Direkt per WhatsApp</a>
           <a class="btn btn-outline" href="tel:+4915567568589">Jetzt anrufen</a>
@@ -183,6 +223,39 @@
     </div>
   </section>
 
+  <section class="section section-white" id="ablauf">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow">So funktioniert die Buchung</span>
+        <h2>In vier Schritten zum Flughafen.</h2>
+        <p>Einfach anfragen, Preis vorab erhalten und zur vereinbarten Zeit direkt abgeholt werden.</p>
+      </div>
+      <div class="booking-steps">
+        <article class="booking-step"><b>1</b><h3>Fahrt anfragen</h3><p>Abholort, Ziel, Datum, Uhrzeit und Personenzahl per Formular, WhatsApp oder Telefon senden.</p></article>
+        <article class="booking-step"><b>2</b><h3>Festpreis erhalten</h3><p>Sie erhalten den konkreten Preis vor der Buchung und können die Fahrt anschließend bestätigen.</p></article>
+        <article class="booking-step"><b>3</b><h3>Treffpunkt abstimmen</h3><p>Abholzeit und Treffpunkt werden direkt vereinbart. Bei Flughafenabholung hilft die Flugnummer bei der Koordination.</p></article>
+        <article class="booking-step"><b>4</b><h3>Direkt ans Ziel</h3><p>Ihr Fahrer holt Sie am vereinbarten Ort ab und bringt Sie ohne unnötigen Umstieg direkt zum Ziel.</p></article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-light" id="flugverspaetung">
+    <div class="wrap">
+      <div class="flight-note">
+        <div>
+          <span class="eyebrow">Flugverspätung & Abholung</span>
+          <h2>Flugnummer angeben. Abholung besser abstimmen.</h2>
+          <p>Bei einer Abholung am Flughafen können Sie Ihre Flugnummer direkt in der Anfrage angeben. Dadurch lassen sich Änderungen bei der Abholung besser berücksichtigen. Bei einer bekannten Verspätung oder kurzfristigen Änderung senden Sie uns bitte zusätzlich eine kurze Nachricht per WhatsApp.</p>
+        </div>
+        <div class="trust-mini">
+          <span>✓ Flugnummer in der Anfrage möglich</span>
+          <span>✓ Treffpunkt wird direkt abgestimmt</span>
+          <span>✓ WhatsApp für kurzfristige Änderungen</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <section class="section section-light" id="transfers">
     <div class="wrap">
       <div class="section-head"><span class="eyebrow">Unsere Transfers</span><h2>Drei Angebote. Klar getrennt.</h2><p>Frankfurt Flughafen, Frankfurt-Hahn oder XL – wählen Sie die passende Fahrt.</p></div>
@@ -190,6 +263,24 @@
         <article class="service-card"><div class="service-visual"><img alt="Schwarze E-Klasse für Frankfurt Flughafen Transfer" src="assets/e-class.png" loading="eager" decoding="async"/></div><div class="service-body"><h3>Frankfurt Flughafen</h3><div class="route">FRA Transfer</div><div class="service-price"><span>ab</span><strong>29 €</strong></div><div class="service-meta"><span>1–4 Personen</span><span>2–4 Koffer</span></div><a class="btn btn-dark" href="frankfurt-airport.html">Flughafen Transfer ansehen</a></div></article>
         <article class="service-card"><div class="service-visual"><img alt="Großraumfahrzeug für Frankfurt-Hahn Transfer" src="assets/sd-v11-hahn.png" loading="eager" decoding="async"/></div><div class="service-body"><h3>Frankfurt-Hahn</h3><div class="route">HHN Transfer</div><div class="service-price"><span>ab</span><strong>89 €</strong></div><div class="service-meta"><span>Direkte Fahrt</span><span>viel Gepäck</span></div><a class="btn btn-dark" href="frankfurt-hahn.html">Hahn Transfer ansehen</a></div></article>
         <article class="service-card"><div class="service-visual"><img alt="Schwarze V-Klasse für XL Transfer" src="assets/v-class.png" loading="eager" decoding="async"/></div><div class="service-body"><h3>XL Transfer</h3><div class="route">Bis 8 Personen</div><div class="service-price"><span>Preis</span><strong>auf Anfrage</strong></div><div class="service-meta"><span>1–8 Personen</span><span>4–8 Koffer</span></div><a class="btn btn-dark" href="xl-transfer.html">XL Transfer ansehen</a></div></article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-white" id="warum-sd">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow">Warum SD Flughafentransfer?</span>
+        <h2>Direkt, transparent und persönlich erreichbar.</h2>
+        <p>Für Ihre Flughafenfahrt wissen Sie vor der Buchung, wie der Ablauf aussieht und wie Sie uns erreichen.</p>
+      </div>
+      <div class="why-grid">
+        <article class="why-card"><h3>Preis vor der Buchung</h3><p>Der konkrete Fahrpreis wird vor Ihrer Bestätigung genannt. So kennen Sie die Kosten vor Fahrtbeginn.</p></article>
+        <article class="why-card"><h3>Direkter Kontakt</h3><p>Anfrage per WhatsApp, Formular oder Telefon – ohne Registrierung und mit direkter Abstimmung Ihrer Fahrt.</p></article>
+        <article class="why-card"><h3>1 bis 8 Personen</h3><p>E-Klasse, Vito oder V-Klasse passend zu Personenzahl und Gepäck. Kindersitze können bei der Anfrage angegeben werden.</p></article>
+        <article class="why-card"><h3>Regionale Abholung</h3><p>Transfers unter anderem aus Frankfurt, Neu-Isenburg, Offenbach, Mainz, Wiesbaden, Darmstadt, Mannheim und Heidelberg.</p></article>
+        <article class="why-card"><h3>Frühe & späte Fahrten</h3><p>Fahrten sind 24/7 auf Anfrage möglich – abhängig von der aktuellen Fahrzeug- und Fahrerverfügbarkeit.</p></article>
+        <article class="why-card"><h3>Google-Bewertungen</h3><p>Kundenbewertungen sind direkt auf der Website verlinkt und geben einen Einblick in Erfahrungen mit unserem Service.</p></article>
       </div>
     </div>
   </section>
@@ -226,109 +317,31 @@
       <div class="section-head">
         <span class="eyebrow">Häufige Fragen</span>
         <h2>Flughafentransfer einfach erklärt.</h2>
-        <p>Die wichtigsten Antworten zu Preis, Buchung, Abholung, Gepäck und einer bequemen Fahrt zum Flughafen.</p>
+        <p>Die wichtigsten Antworten zu Preis, kurzfristiger Buchung, Gepäck, Kindersitzen und Abholung.</p>
       </div>
 
       <div class="faq-list">
-        <details class="faq-item">
-          <summary>Was kostet ein günstiger Flughafentransfer zum Frankfurt Airport?</summary>
-          <p>Fahrten aus Frankfurt zum Flughafen Frankfurt starten bei uns ab 29 €. Der genaue Preis hängt vom Abholort, Ziel, der Personenzahl und dem benötigten Fahrzeug ab. Den finalen Preis erhalten Sie vor der Buchung.</p>
-        </details>
-
-        <details class="faq-item">
-          <summary>Wie schnell kann ich einen Flughafentransfer anfragen?</summary>
-          <p>Die Anfrage ist direkt über das Formular oder per WhatsApp möglich. Sie senden Abholort, Ziel, Datum und Personenzahl und wir können die Fahrt anschließend je nach Verfügbarkeit schnell mit Ihnen abstimmen.</p>
-        </details>
-
-        <details class="faq-item">
-          <summary>Ist die Anfrage für meinen Flughafentransfer kostenlos?</summary>
-          <p>Ja. Die Preisanfrage ist kostenlos und unverbindlich. Erst wenn Sie die angebotene Fahrt bestätigen, wird daraus eine Buchung.</p>
-        </details>
-
-        <details class="faq-item">
-          <summary>Bekomme ich den Preis vor der Buchung genannt?</summary>
-          <p>Ja. Sie erhalten den Preis vor der Buchung, damit Sie vor der Fahrt wissen, mit welchem Betrag Sie rechnen können. So bleibt die Anfrage transparent und einfach.</p>
-        </details>
-
-        <details class="faq-item">
-          <summary>Wie einfach funktioniert die Buchung per WhatsApp?</summary>
-          <p>Abholort, Ziel, Datum und Personenzahl eintragen und die Anfrage mit einem Klick in WhatsApp öffnen. Dort können weitere Details wie Gepäck, Flugnummer oder Kindersitze direkt abgestimmt werden.</p>
-        </details>
-
-        <details class="faq-item">
-          <summary>Kann ich direkt zu Hause abgeholt und zum Flughafen gefahren werden?</summary>
-          <p>Ja. Der Transfer kann direkt an Ihrer gewünschten Adresse starten und ohne Umstieg zum vereinbarten Ziel führen. Das ist besonders bequem mit Gepäck, Kindern oder bei frühen Abflugzeiten.</p>
-        </details>
-
-        <details class="faq-item">
-          <summary>Was passiert, wenn sich mein Flug verspätet?</summary>
-          <p>Wenn Sie uns Ihre Flugnummer mitteilen, können Änderungen bei der Abholung besser berücksichtigt und mit Ihnen abgestimmt werden. Bei Änderungen empfehlen wir zusätzlich eine kurze Nachricht per WhatsApp.</p>
-        </details>
-
-        <details class="faq-item">
-          <summary>Gibt es Flughafentransfers mit Kindersitz?</summary>
-          <p>Ja. Kindersitze können bei der Anfrage angegeben werden. Teilen Sie uns Anzahl und Bedarf möglichst früh mit, damit das passende Fahrzeug vorbereitet werden kann.</p>
-        </details>
-
-        <details class="faq-item">
-          <summary>Kann ich mit einer Gruppe und viel Gepäck zum Flughafen fahren?</summary>
-          <p>Ja. Für Familien und Gruppen stehen größere Fahrzeuge wie Vito oder V-Klasse zur Verfügung. Je nach Fahrzeug sind Fahrten mit bis zu 8 Personen und mehreren Koffern möglich.</p>
-        </details>
-
-        <details class="faq-item">
-          <summary>Was macht einen seriösen und bequemen Flughafentransfer aus?</summary>
-          <p>Klare Preise vor der Buchung, direkter Kontakt, ein passendes Fahrzeug sowie eine eindeutig abgestimmte Abholzeit sorgen für einen unkomplizierten Ablauf. Genau darauf ist unser Transferprozess ausgelegt.</p>
-        </details>
+        <details class="faq-item"><summary>Was kostet ein Flughafentransfer zum Frankfurt Airport?</summary><p>Fahrten aus Frankfurt zum Flughafen Frankfurt starten bei uns ab 29 €. Der genaue Preis hängt von Abholort, Ziel, Personenzahl und Fahrzeug ab. Den konkreten Preis erhalten Sie vor der Buchung.</p></details>
+        <details class="faq-item"><summary>Kann ich einen Flughafentransfer auch kurzfristig buchen?</summary><p>Ja. Kurzfristige Anfragen sind je nach Fahrzeug- und Fahrerverfügbarkeit möglich. Am schnellsten erreichen Sie uns per WhatsApp oder telefonisch.</p></details>
+        <details class="faq-item"><summary>Bekomme ich den Preis vor der Buchung genannt?</summary><p>Ja. Sie erhalten den konkreten Preis vor Ihrer Bestätigung, damit die Kosten vor Fahrtbeginn transparent sind.</p></details>
+        <details class="faq-item"><summary>Wie funktioniert die Buchung per WhatsApp?</summary><p>Abholort, Ziel, Datum und Personenzahl eintragen und die Anfrage mit einem Klick in WhatsApp öffnen. Weitere Details wie Gepäck, Flugnummer oder Kindersitze können dort direkt abgestimmt werden.</p></details>
+        <details class="faq-item"><summary>Was passiert, wenn sich mein Flug verspätet?</summary><p>Geben Sie bei einer Flughafenabholung Ihre Flugnummer an. Dadurch können Änderungen bei der Abholung besser berücksichtigt werden. Bei einer bekannten Verspätung empfehlen wir zusätzlich eine kurze Nachricht per WhatsApp.</p></details>
+        <details class="faq-item"><summary>Gibt es Flughafentransfers mit Kindersitz?</summary><p>Ja. Kindersitze können bei der Anfrage angegeben werden. Teilen Sie uns Anzahl und Bedarf möglichst früh mit.</p></details>
+        <details class="faq-item"><summary>Was mache ich, wenn wir 8 Personen sind und viel Gepäck haben?</summary><p>Geben Sie Personenzahl und möglichst die Anzahl der Koffer an. Für Gruppen bis 8 Personen stehen größere Fahrzeuge wie Vito oder V-Klasse zur Verfügung. Bei besonders viel Gepäck prüfen wir vorab, welches Fahrzeug geeignet ist.</p></details>
+        <details class="faq-item"><summary>Wie komme ich einfach und günstig zum Frankfurt Flughafen?</summary><p>Bei mehreren Personen kann ein gemeinsamer direkter Flughafentransfer praktisch sein: Sie werden an der vereinbarten Adresse abgeholt, fahren ohne Umstieg zum Flughafen und kennen den Preis vor der Buchung. Fahrten aus Frankfurt starten ab 29 €.</p></details>
       </div>
 
       <details class="faq-more">
         <summary>Mehr anzeigen</summary>
         <div class="faq-list">
-          <details class="faq-item">
-            <summary>Was mache ich, wenn wir 8 Personen sind und viel Gepäck haben?</summary>
-            <p>Geben Sie bei der Anfrage die genaue Personenzahl und möglichst auch die Anzahl der Koffer an. Für Gruppen bis 8 Personen stehen größere Fahrzeuge wie Vito oder V-Klasse zur Verfügung. Bei besonders viel Gepäck prüfen wir vorab, ob ein Fahrzeug ausreicht.</p>
-          </details>
-
-          <details class="faq-item">
-            <summary>Wie komme ich am günstigsten zum Frankfurt Flughafen?</summary>
-            <p>Das hängt von Startort, Personenzahl und Gepäck ab. Bei mehreren Personen kann ein gemeinsamer Flughafentransfer besonders praktisch sein, weil Sie direkt abgeholt werden und den Preis vor der Buchung kennen. Unsere Fahrten aus Frankfurt starten ab 29 €.</p>
-          </details>
-
-          <details class="faq-item">
-            <summary>Wie komme ich am schnellsten zum Flughafen?</summary>
-            <p>Eine direkte Fahrt ohne Umstieg ist besonders einfach, wenn Abholzeit und Route vorher feststehen. Wir holen Sie an der vereinbarten Adresse ab und fahren direkt zum Flughafen.</p>
-          </details>
-
-          <details class="faq-item">
-            <summary>Wer ist flexibel erreichbar, wenn ich kurzfristig zum Flughafen muss?</summary>
-            <p>Sie können SD Flughafentransfer direkt per WhatsApp oder Telefon kontaktieren. Fahrten sind 24/7 auf Anfrage möglich, abhängig von der aktuellen Fahrzeug- und Fahrerverfügbarkeit.</p>
-          </details>
-
-          <details class="faq-item">
-            <summary>Kann ich auch nachts oder früh morgens zum Flughafen fahren?</summary>
-            <p>Ja. Frühfahrten und Nachtfahrten sind auf Anfrage möglich. Am besten senden Sie die gewünschte Abholzeit möglichst früh, damit die Verfügbarkeit bestätigt werden kann.</p>
-          </details>
-
-          <details class="faq-item">
-            <summary>Kann ich meinen Flughafentransfer sehr kurzfristig buchen?</summary>
-            <p>Kurzfristige Anfragen sind möglich. Ob eine Fahrt übernommen werden kann, hängt von der aktuellen Verfügbarkeit ab. Am schnellsten erreichen Sie uns per WhatsApp oder telefonisch.</p>
-          </details>
-
-          <details class="faq-item">
-            <summary>Wo werde ich am Flughafen abgeholt?</summary>
-            <p>Der konkrete Treffpunkt wird vor der Abholung direkt mit Ihnen abgestimmt. Bei Flughafenabholungen hilft die Flugnummer dabei, die Abholung besser zu koordinieren.</p>
-          </details>
-
-          <details class="faq-item">
-            <summary>Kann ich Hin- und Rückfahrt gleichzeitig buchen?</summary>
-            <p>Ja. Sie können bei der Anfrage direkt eine Rückfahrt ergänzen. So lassen sich beide Fahrten, Zeiten und Treffpunkte zusammen abstimmen.</p>
-          </details>
+          <details class="faq-item"><summary>Kann ich auch nachts oder früh morgens zum Flughafen fahren?</summary><p>Ja. Früh- und Nachtfahrten sind 24/7 auf Anfrage möglich, abhängig von der aktuellen Fahrzeug- und Fahrerverfügbarkeit.</p></details>
+          <details class="faq-item"><summary>Wo werde ich am Flughafen abgeholt?</summary><p>Der konkrete Treffpunkt wird vor der Abholung direkt mit Ihnen abgestimmt. Ihre Flugnummer hilft dabei, die Abholung besser zu koordinieren.</p></details>
+          <details class="faq-item"><summary>Kann ich Hin- und Rückfahrt gleichzeitig buchen?</summary><p>Ja. Sie können bei der Anfrage direkt eine Rückfahrt ergänzen und beide Fahrten zusammen abstimmen.</p></details>
+          <details class="faq-item"><summary>Kann ich direkt zu Hause abgeholt werden?</summary><p>Ja. Der Transfer kann direkt an Ihrer gewünschten Adresse starten und ohne Umstieg zum vereinbarten Ziel führen.</p></details>
         </div>
       </details>
 
-      <div class="faq-cta">
-        <a class="btn btn-whatsapp" data-whatsapp>Kostenlos Fahrt anfragen</a>
-      </div>
+      <div class="faq-cta"><a class="btn btn-whatsapp" data-whatsapp>Kostenlos Fahrt anfragen</a></div>
     </div>
   </section>
 
